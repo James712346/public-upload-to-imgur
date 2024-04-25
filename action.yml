@@ -1,4 +1,4 @@
-name: 'Publish on imgur'
+name: 'Publish on imgur v2'
 description: 'Upload image(s) to imgur using their API'
 branding:
   icon: 'image'
