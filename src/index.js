@@ -27,7 +27,7 @@ async function main() {
       return uploadToImgur(img_path, description, clientId)
     })
   )
-
+  console.log(links);
   core.setOutput("imgur_urls", JSON.stringify(links))
   let markdown_urls = links.map(link => `![Imgur Images](${link[1]})`)
   core.setOutput("markdown_urls", JSON.stringify(markdown_urls))
