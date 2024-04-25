@@ -29,7 +29,7 @@ async function main() {
   )
 
   core.setOutput("imgur_urls", JSON.stringify(links))
-  let markdown_urls = links.map(link => `![Imgur Images](${link})`)
+  let markdown_urls = links.map(link => `![Imgur Images](${link[1]})`)
   core.setOutput("markdown_urls", JSON.stringify(markdown_urls))
   console.log("Script finished.")
 }
@@ -55,7 +55,7 @@ function uploadToImgur(img_path, description, clientId) {
         throw new Error(`Request failed. Status code: ${res.status}. Error: ${res.data.error}`)
       }
       console.log("Request successful. Image URL is at: " + res.data.link)
-      return res.data.link
+      return (img_path, res.data.link)
     })
     .catch(err => {throw err})
 }
